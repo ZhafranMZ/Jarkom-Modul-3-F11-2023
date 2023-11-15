@@ -1,7 +1,11 @@
 echo 'nameserver 192.168.122.1' > /etc/resolv.conf
 
 apt-get update
-apt-get install nginx php php-fpm -y
+apt-get install ca-certificates unzip nginx php php-fpm -y
+
+curl -sSLo granz.channel.yyy.com.zip https://github.com/ZhafranMZ/Jarkom-Modul-3-F11-2023/raw/main/resources/granz.channel.yyy.com.zip
+unzip granz.channel.yyy.com.zip
+mv modul-3 /var/www/riegel.canyon.f11.com
 
 echo '
 server {
@@ -32,14 +36,7 @@ access_log /var/log/nginx/riegel.canyon.f11.com_access.log;
 }
 ' > /etc/nginx/sites-available/granz.channel.f11.com
 
-mkdir -p /var/www/riegel.canyon.f11.com
-
-echo '
-<?php
-echo "Halo, Kamu berada di Lawine";
-?>
-' > /var/www/riegel.canyon.f11.com/index.php
-
-
-ln -s /etc/nginx/sites-available/riegel.canyon.f11.com /etc/nginx/sites-enabled
+ln -s /etc/nginx/sites-available/granz.channel.f11.com /etc/nginx/sites-enabled
+rm /etc/nginx/sites-enabled/default
+service php7.3-fpm start
 service nginx restart
