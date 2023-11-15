@@ -61,6 +61,9 @@ $TTL    604800
 @       IN      A       10.57.2.2
 www     IN      CNAME   granz.channel.f11.com.
 roundrobin			IN      CNAME   granz.channel.f11.com.
+roundrobin1			IN      CNAME   granz.channel.f11.com.
+roundrobin2			IN      CNAME   granz.channel.f11.com.
+roundrobin3			IN      CNAME   granz.channel.f11.com.
 leastconnection		IN      CNAME   granz.channel.f11.com.
 iphash				IN      CNAME   granz.channel.f11.com.
 generichash			IN      CNAME   granz.channel.f11.com.

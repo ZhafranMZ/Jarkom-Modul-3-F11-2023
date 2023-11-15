@@ -17,6 +17,21 @@ upstream mywebroundrobin {
  	server 10.57.3.4;
 }
 
+upstream mywebroundrobin1 {
+ 	server 10.57.3.2;
+}
+
+upstream mywebroundrobin2 {
+ 	server 10.57.3.2;
+ 	server 10.57.3.3;
+}
+
+upstream mywebroundrobin3 {
+ 	server 10.57.3.2;
+ 	server 10.57.3.3;
+ 	server 10.57.3.4;
+}
+
 upstream mywebleastconnection {
     least_conn;
  	server 10.57.3.2;
@@ -30,7 +45,6 @@ upstream mywebiphash {
  	server 10.57.3.3;
  	server 10.57.3.4;
 }
-
 
 upstream mywebgenerichash {
  	server 10.57.3.2;
@@ -53,6 +67,33 @@ server {
 
  	location / {
  	proxy_pass http://mywebroundrobin;
+ 	}
+}
+
+server {
+ 	listen 80;
+ 	server_name roundrobin1.granz.channel.f11.com;
+
+ 	location / {
+ 	proxy_pass http://mywebroundrobin1;
+ 	}
+}
+
+server {
+ 	listen 80;
+ 	server_name roundrobin2.granz.channel.f11.com;
+
+ 	location / {
+ 	proxy_pass http://mywebroundrobin2;
+ 	}
+}
+
+server {
+ 	listen 80;
+ 	server_name roundrobin3.granz.channel.f11.com;
+
+ 	location / {
+ 	proxy_pass http://mywebroundrobin3;
  	}
 }
 
