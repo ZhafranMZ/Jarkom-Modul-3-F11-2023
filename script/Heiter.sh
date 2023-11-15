@@ -14,6 +14,18 @@ zone "granz.channel.f11.com" {
 };
 ' > /etc/bind/named.conf.local
 
+echo '
+options {
+  directory "/var/cache/bind";
+  forwarders {
+    192.168.122.1;
+  };
+  allow-query{any;};
+
+  listen-on-v6 { any; };
+};
+' > /etc/bind/named.conf.options
+
 mkdir -p /etc/bind/praktikum
 
 echo '
