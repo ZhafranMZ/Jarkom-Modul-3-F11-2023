@@ -1,6 +1,6 @@
 echo '
 upstream myweb {
-	hash $request_uri consistent
+	hash $request_uri consistent;
 	server 10.57.3.1;
 	server 10.57.3.2;
 	server 10.57.3.3;
