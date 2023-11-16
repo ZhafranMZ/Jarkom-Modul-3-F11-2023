@@ -4,6 +4,8 @@
 -	Muhammad Zhafran			(5025211100)
 -	Mohamad Valdi Ananda Tauhid		(5025221238)
 
+Link Project File GNS3 : [Google Drive](https://drive.google.com/file/d/1qYOMEXRjm-oj1eiydeq2nt_Cq1JmGdXE/view?usp=sharing)
+
 ### SOAL
 **Perjalanan selanjutnya akan menggunakan peta berikut:**
 ![gambarModul3](https://github.com/ZhafranMZ/Jarkom-Modul-3-F11-2023/assets/114043452/44500189-4fca-4550-add7-f2a445ac7c53)
