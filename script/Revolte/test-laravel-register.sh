@@ -1,0 +1,1 @@
+ab -n 100 -c 10 -p /root/account.json -T application/json http://10.57.4.4:8000/api/auth/register
