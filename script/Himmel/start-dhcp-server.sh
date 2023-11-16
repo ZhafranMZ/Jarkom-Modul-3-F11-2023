@@ -33,7 +33,7 @@ subnet 10.57.4.0 netmask 255.255.255.0 {
 }
 
 host Revolte {
-    harware ethernet 26:e5:28:a8:68:0a;
+    hardware ethernet 26:e5:28:a8:68:0a;
     fixed-address 10.57.3.69;
 }
 ' > /etc/dhcp/dhcpd.conf
