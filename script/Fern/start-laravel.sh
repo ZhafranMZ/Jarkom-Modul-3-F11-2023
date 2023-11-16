@@ -1,24 +1,11 @@
-echo 'nameserver 192.168.122.1' > /etc/resolv.conf
-
-apt-get update
-apt-get install mariadb-client -y
-apt-get install -y lsb-release ca-certificates apt-transport-https software-properties-common gnupg2
-curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
-sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
-
-apt-get update
-apt-get install php8.2-mbstring php8.2-xml php8.2-cli php8.2-common php8.2-intl php8.2-opcache php8.2-readline php8.2-mysql php8.2-fpm php8.2-curl unzip wget -y
-apt-get install nginx -y
 wget https://getcomposer.org/download/2.0.13/composer.phar
 chmod +x composer.phar
 mv composer.phar /usr/bin/composer
 
-apt-get install git -y
 cd /var/www/
 git clone https://github.com/martuafernando/laravel-praktikum-jarkom.git
 cd laravel-praktikum-jarkom
-composer install
-
+composer update
 
 echo '
 APP_NAME=Laravel
@@ -84,6 +71,7 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 php artisan migrate:fresh
 php artisan db:seed --class=AiringsTableSeeder
 php artisan key:generate
+php artisan jwt:secret
 
 echo '
 server {
@@ -102,7 +90,7 @@ server {
     # pass PHP scripts to FastCGI server
     location ~ \.php$ {
     include snippets/fastcgi-php.conf;
-    fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+    fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
     }
 
     location ~ /\.ht {
@@ -116,10 +104,7 @@ server {
 
 
 ln -s /etc/nginx/sites-available/riegel.canyon.f11.com /etc/nginx/sites-enabled
+chown -R www-data.www-data /var/www/laravel-praktikum-jarkom/storage
 rm /etc/nginx/sites-enabled/default
-service php8.2-fpm start
+service php8.0-fpm start
 service nginx restart
-
-
-$ curl http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=bd82977b86bf27fb59a04b61b657fb6f
-{"coord":{"lon":-0.13,"lat":51.51},"weather":[
