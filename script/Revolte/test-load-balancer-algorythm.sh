@@ -1,0 +1,1 @@
+ab -n 100 -c 10 http://10.57.2.2/ > load_balancer_algorythm_test_result.txt
