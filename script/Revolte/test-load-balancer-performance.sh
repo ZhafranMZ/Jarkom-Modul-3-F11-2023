@@ -1,0 +1,1 @@
+ab -n 1000 -c 100 http://10.57.2.2/ > load_balancer_performance.txt
