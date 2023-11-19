@@ -421,7 +421,8 @@ server {
 }
 ' > /etc/nginx/sites-available/granz.channel.f11.com
 
-service nginx restart```
+service nginx restart
+```
     - test-load-balancer-performance.sh
 
 
